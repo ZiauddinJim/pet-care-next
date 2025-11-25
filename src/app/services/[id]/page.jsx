@@ -1,4 +1,5 @@
 
+import BackButton from '@/components/BackButton';
 import BookButton from '@/components/BookButton';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import Image from 'next/image';
@@ -24,11 +25,11 @@ const page = async ({ params }) => {
     return (
         <ProtectedRoute>
             <div className='max-w-4xl mx-auto p-6 shadow-md rounded-md my-10'>
-                <title>Service | Pet Care</title>
                 <div className='flex flex-col md:flex-row gap-6'>
                     <Image src={image} alt={serviceName} width={600}
                         height={400} className="w-full md:w-1/2 rounded-md object-cover" />
                     <div className='flex-1 space-y-1.5'>
+                        <BackButton />
                         <h1 className='font-bold text-2xl text-primary '>{serviceName}</h1>
                         <p>{description}</p>
                         <p><strong>Service ID:</strong> {serviceId}</p>
