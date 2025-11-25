@@ -1,0 +1,74 @@
+[
+    {
+      "serviceId": 1,
+      "serviceName": "Winter Coat Fitting for Dogs",
+      "providerName": "PawCare Studio",
+      "providerEmail": "info@pawcare.com",
+      "price": 25,
+      "rating": 4,
+      "slotsAvailable": 4,
+      "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+      "image": "https://i.ibb.co.com/wVQX3KM/33454986521-a9967fcd02-1.jpg",
+      "category": "Clothing"
+    },
+    {
+      "serviceId": 2,
+      "serviceName": "Pet Paw Waxing & Protection",
+      "providerName": "Furry Feet Spa",
+      "providerEmail": "contact@furryfeetspa.com",
+      "price": 30,
+      "rating": 3,
+      "slotsAvailable": 5,
+      "description": "Protect your pet's paws from frostbite and harsh winter surfaces with safe wax treatments.",
+      "image": "https://i.ibb.co.com/xqM1ZHBK/51-FLzl-a4-GL-AC.jpg",
+      "category": "Grooming"
+    },
+    {
+      "serviceId": 3,
+      "serviceName": "Winter Grooming Package",
+      "providerName": "Pawfect Groomers",
+      "providerEmail": "services@pawfectgroomers.com",
+      "price": 45,
+      "rating": 5,
+      "slotsAvailable": 3,
+      "description": "Special winter grooming services including fur trimming, moisturizing, and coat care.",
+      "image": "https://i.ibb.co.com/CKPLxqGM/image.png",
+      "category": "Grooming"
+    },
+    {
+      "serviceId": 4,
+      "serviceName": "Heated Pet Bed Setup",
+      "providerName": "Cozy Paws Store",
+      "providerEmail": "support@cozypaws.com",
+      "price": 50,
+      "rating": 3,
+      "slotsAvailable": 10,
+      "description": "Install heated beds for pets to stay warm and cozy indoors during freezing temperatures.",
+      "image": "https://i.ibb.co.com/qYLWHjJc/Blue-Dome2.png",
+      "category": "Health & Comfort"
+    },
+    {
+      "serviceId": 5,
+      "serviceName": "Winter Nutrition Consultation",
+      "providerName": "Healthy Pets Nutrition",
+      "providerEmail": "nutrition@healthypets.com",
+      "price": 40,
+      "rating": 4,
+      "slotsAvailable": 6,
+      "description": "Expert consultation for pet diets to maintain health, energy, and immunity in cold months.",
+      "image": "https://i.ibb.co.com/RWv3qyW/dog-nutrition-1.jpg",
+      "category": "Nutrition"
+    },
+    {
+      "serviceId": 6,
+      "serviceName": "Indoor Winter Play Sessions",
+      "providerName": "Paws Playhouse",
+      "providerEmail": "info@pawsplayhouse.com",
+      "price": 20,
+      "rating": 5,
+      "slotsAvailable": 8,
+      "description": "Fun indoor play sessions to keep pets active and entertained safely during winter.",
+      "image": "https://i.ibb.co.com/yFzpmTcL/Corgi-dog-bent-over-interactive-educational-puzzle-toy-Masarik-Shutterstock.jpg",
+      "category": "Activity & Exercise"
+    }
+  ]

@@ -6,7 +6,7 @@ import MyContainer from "./MyContainer";
 import MyLink from "./MyLink";
 import Link from "next/link";
 import { BiMenuAltLeft } from "react-icons/bi";
-import logo from "../assets/logo.png";
+import logo from "../../public/assets/logo.png";
 import Image from "next/image";
 
 const Navbar = () => {

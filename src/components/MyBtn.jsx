@@ -1,10 +1,9 @@
-import React from 'react';
+import Link from 'next/link';
 import { FaArrowCircleRight } from 'react-icons/fa';
-import { Link } from 'react-router';
 
 const MyBtn = ({ children, className, to, }) => {
     return (
-        <Link to={to}
+        <Link href={to}
             className={`relative overflow-hidden
         btn btn-primary btn-outline
         flex items-center gap-2
