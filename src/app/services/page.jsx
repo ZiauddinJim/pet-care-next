@@ -13,7 +13,7 @@ const Services = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:5000/petService")
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/petService`)
                 const data = await response.json()
                 setPets(data);
                 setLoading(false)

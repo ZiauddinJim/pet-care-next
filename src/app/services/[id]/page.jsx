@@ -6,7 +6,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
 async function getService(id) {
-    const res = await fetch(`http://localhost:5000/petService/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/petService/${id}`, {
         cache: "no-store",
     });
     return res.json();
