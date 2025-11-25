@@ -1,6 +1,6 @@
-"use client"; // required because we use state & react-spring
+"use client"; 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";
@@ -9,7 +9,11 @@ import MyBtn from "./MyBtn";
 const clamp = (n, min, max) => Math.min(Math.max(n ?? 0, min), max);
 
 const OCSCard = ({ pet = {} }) => {
-    const { image, serviceName, description, rating: rawRating, _id, price } = pet;
+    const { image, serviceName, description, rating: rawRating, _id, id, price } = pet;
+    const idForLink = _id ?? id;
+    useEffect(() => {
+        // console.log("OCSCard pet:", pet, "idForLink:", idForLink);
+    }, [pet, idForLink]);
     const rating = clamp(Math.round(Number(rawRating) || 0), 0, 5);
 
     const [hovered, setHovered] = useState(false);
@@ -74,7 +78,7 @@ const OCSCard = ({ pet = {} }) => {
                 </div>
             </div>
 
-            <MyBtn to={`/services/${_id}`} className={"mt-5"} aria-label={`View details for ${serviceName}`}>
+            <MyBtn to={`/services/${idForLink}`} className={"mt-5"} aria-label={`View details for ${serviceName}`}>
                 View Details
             </MyBtn>
         </animated.div>
