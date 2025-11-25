@@ -1,5 +1,6 @@
 
 import BookButton from '@/components/BookButton';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import Image from 'next/image';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
@@ -21,31 +22,34 @@ const page = async ({ params }) => {
         image, category, providerName } = pet
 
     return (
-        <div className='max-w-4xl mx-auto p-6 shadow-md rounded-md my-10'>
-            <title>Service | Pet Care</title>
-            <div className='flex flex-col md:flex-row gap-6'>
-                <Image src={image} alt={serviceName} width={600}
-                    height={400} className="w-full md:w-1/2 rounded-md object-cover" />
-                <div className='flex-1 space-y-1.5'>
-                    <h1 className='font-bold text-2xl text-primary '>{serviceName}</h1>
-                    <p>{description}</p>
-                    <p><strong>Service ID:</strong> {serviceId}</p>
-                    <p><strong>Provider Name:</strong> {providerName}</p>
-                    <p><strong>Provider Contact:</strong> {providerEmail}</p>
-                    <p><strong>Category:</strong> {category}</p>
-                    <p><strong>Price:</strong> {price}</p>
-                    <div className='flex'><strong>Rating:</strong> <div className='flex flex-row-reverse justify-end gap-2 items-center text-secondary'>
-                        {Array.from({ length: rating }).map((_, i) => (
-                            <FaStar key={i} />
-                        ))} <span className='ml-2 text-white bg-primary px-2 rounded'>{rating}</span></div>
-                    </div>
-                    <p><strong>Slots Available:</strong> {slotsAvailable}</p>
+        <ProtectedRoute>
+            <div className='max-w-4xl mx-auto p-6 shadow-md rounded-md my-10'>
+                <title>Service | Pet Care</title>
+                <div className='flex flex-col md:flex-row gap-6'>
+                    <Image src={image} alt={serviceName} width={600}
+                        height={400} className="w-full md:w-1/2 rounded-md object-cover" />
+                    <div className='flex-1 space-y-1.5'>
+                        <h1 className='font-bold text-2xl text-primary '>{serviceName}</h1>
+                        <p>{description}</p>
+                        <p><strong>Service ID:</strong> {serviceId}</p>
+                        <p><strong>Provider Name:</strong> {providerName}</p>
+                        <p><strong>Provider Contact:</strong> {providerEmail}</p>
+                        <p><strong>Category:</strong> {category}</p>
+                        <p><strong>Price:</strong> {price}</p>
+                        <div className='flex'><strong>Rating:</strong> <div className='flex flex-row-reverse justify-end gap-2 items-center text-secondary'>
+                            {Array.from({ length: rating }).map((_, i) => (
+                                <FaStar key={i} />
+                            ))} <span className='ml-2 text-white bg-primary px-2 rounded'>{rating}</span></div>
+                        </div>
+                        <p><strong>Slots Available:</strong> {slotsAvailable}</p>
 
-                    <div className='mt-10 text-2xl font-semibold text-primary'>Book a Consultation:</div>
-                    <BookButton message="Thank you." />
+                        <div className='mt-10 text-2xl font-semibold text-primary'>Book a Consultation:</div>
+                        <BookButton message="Thank you." />
+                    </div>
                 </div>
             </div>
-        </div>
+        </ProtectedRoute>
+
     );
 };
 
