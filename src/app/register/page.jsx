@@ -1,10 +1,8 @@
 "use client";
 
 import React, { useContext, useState } from "react";
-import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { MdOutlineMail } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { BsEye } from "react-icons/bs";
@@ -25,8 +23,7 @@ const Register = () => {
     } = useContext(AuthContext);
 
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const from = searchParams?.get("from") || "/";
+
 
     const [show, setShow] = useState(false);
 
@@ -42,39 +39,6 @@ const Register = () => {
         return null;
     };
 
-    // const handleRegister = async (e) => {
-    //     e.preventDefault();
-    //     setLoading(true);
-
-    //     try {
-    //         const form = e.target;
-    //         const displayName = form.name.value;
-    //         const photoURL = form.photoURL.value;
-    //         const email = form.email.value;
-    //         const password = form.password.value;
-
-    //         const passwordError = validatePassword(password);
-    //         if (passwordError) {
-    //             toast.error(passwordError);
-    //             setLoading(false);
-    //             return;
-    //         }
-
-    //         await createUserSignInWithEmailFun(email, password);
-    //         // Update profile
-    //         const result = await updateProfileFun(displayName, photoURL);
-
-    //         toast.success("Welcome.");
-    //         form.reset();
-    //         const user = result.user;
-    //         toast.success(`Welcome back, ${user.displayName || "User"}!`);
-    //         router.push("/");
-    //     } catch (err) {
-    //         firebaseSignUpErrorHandle(err);
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
     const handleRegister = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -118,7 +82,7 @@ const Register = () => {
             const userCredential = await googleSignInFun();
             const user = userCredential.user;
             toast.success(`Welcome, ${user.displayName || "User"}!`);
-            router.push(from);
+            router.push("/");
         } catch (err) {
             const error = err?.message || "";
             toast.error(error.includes("popup-closed-by-user") ? "Google Sign-In cancelled." : "Failed to sign in with Google. Please try again.");
@@ -127,14 +91,9 @@ const Register = () => {
         }
     };
 
-    // If your AuthContext exposes a `loading` state and you want to show a spinner,
-    // you could use it, e.g. if (loading) return <Spinner />;
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-4">
-            <Head>
-                <title>Register | Pet Care</title>
-            </Head>
             <div className="md:max-w-md w-full px-4 py-4">
                 <form onSubmit={handleRegister}>
                     {/* Top */}

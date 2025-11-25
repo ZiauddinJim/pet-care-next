@@ -5,7 +5,7 @@ import { BsEye } from "react-icons/bs";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineMail } from "react-icons/md";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import MyContainer from "@/components/MyContainer";
@@ -13,8 +13,6 @@ import AuthContext from "@/components/AuthContext";
 
 const LoginPage = () => {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const redirect = searchParams.get("redirect") || "/";
 
     const { signInFun, googleSignInFun } = useContext(AuthContext);
 
@@ -31,7 +29,7 @@ const LoginPage = () => {
             const user = result.user;
 
             toast.success(`Welcome back, ${user.displayName || "User"}!`);
-            router.push(redirect);
+            router.push("/");
         } catch (error) {
             let message = "Something went wrong. Please try again!";
 
@@ -77,7 +75,7 @@ const LoginPage = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center p-4">
-            <title>Login | Pet Care</title>
+
 
             <MyContainer className="flex flex-col  items-center gap-4 max-md:gap-8 max-w-6xl w-full p-4 shadow-xl rounded-md">
                 <div className="md:max-w-md w-full px-4 py-4">
