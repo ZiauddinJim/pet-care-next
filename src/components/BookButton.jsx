@@ -1,15 +1,20 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React from "react";
 import Swal from "sweetalert2";
 
 const BookButton = ({ onBookedText = "Service Booked!", message = "Thank you." }) => {
+    const router = useRouter();
+
     const handleClick = () => {
-        // client-only code that uses SweetAlert2
         Swal.fire({
             icon: "success",
             title: onBookedText,
             text: message,
+            confirmButtonText: "OK",
+        }).then(() => {
+            router.push("/services");
         });
     };
 

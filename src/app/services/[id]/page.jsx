@@ -3,7 +3,6 @@ import BookButton from '@/components/BookButton';
 import Image from 'next/image';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import Swal from 'sweetalert2';
 
 async function getService(id) {
     const res = await fetch(`http://localhost:5000/petService/${id}`, {

@@ -20,7 +20,7 @@ const OurCareServices = () => {
                 const data = await response.json()
                 setPets(data);
                 setLoading(false)
-                console.log(data);
+                // console.log(data);
             } catch (error) {
                 console.log(error);
             }

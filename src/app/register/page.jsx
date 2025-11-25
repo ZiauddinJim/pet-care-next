@@ -42,6 +42,39 @@ const Register = () => {
         return null;
     };
 
+    // const handleRegister = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+
+    //     try {
+    //         const form = e.target;
+    //         const displayName = form.name.value;
+    //         const photoURL = form.photoURL.value;
+    //         const email = form.email.value;
+    //         const password = form.password.value;
+
+    //         const passwordError = validatePassword(password);
+    //         if (passwordError) {
+    //             toast.error(passwordError);
+    //             setLoading(false);
+    //             return;
+    //         }
+
+    //         await createUserSignInWithEmailFun(email, password);
+    //         // Update profile
+    //         const result = await updateProfileFun(displayName, photoURL);
+
+    //         toast.success("Welcome.");
+    //         form.reset();
+    //         const user = result.user;
+    //         toast.success(`Welcome back, ${user.displayName || "User"}!`);
+    //         router.push("/");
+    //     } catch (err) {
+    //         firebaseSignUpErrorHandle(err);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
     const handleRegister = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -60,24 +93,24 @@ const Register = () => {
                 return;
             }
 
-            await createUserSignInWithEmailFun(email, password);
+            // Create user
+            const userCredential = await createUserSignInWithEmailFun(email, password);
 
-            // Update profile
+            // update profile (returns void)
             await updateProfileFun(displayName, photoURL);
 
-            // signOut so the user has to login (matches your original flow)
-            await signOutFun();
-
-            toast.success("Signup successful. Continue with Login.");
+            toast.success(`Welcome`);
             form.reset();
-            setUser(null);
-            router.push("/auth/login");
+
+            router.push("/");   // redirect
         } catch (err) {
             firebaseSignUpErrorHandle(err);
         } finally {
             setLoading(false);
         }
     };
+
+
 
     const handleGoogle = async () => {
         setLoading(true);
