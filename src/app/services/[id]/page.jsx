@@ -45,7 +45,12 @@ const page = async ({ params }) => {
                         <p><strong>Slots Available:</strong> {slotsAvailable}</p>
 
                         <div className='mt-10 text-2xl font-semibold text-primary'>Book a Consultation:</div>
-                        <BookButton message="Thank you." />
+                       <BookButton
+                            serviceId={serviceId}
+                            serviceName={serviceName}
+                            providerName={providerName}
+                            message="Thank you."
+                        />
                     </div>
                 </div>
             </div>
