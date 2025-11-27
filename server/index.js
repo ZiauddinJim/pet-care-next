@@ -33,6 +33,7 @@ async function run() {
         await client.connect();
         const db = client.db("petCare")
         const petServiceCollection = db.collection("petService")
+        const petServiceBookingCollection = db.collection("petBooking")
 
         //  Section: GET METHOD
         app.get("/petService", async (req, res) => {
@@ -42,6 +43,26 @@ async function run() {
 
         app.get("/petService/:_id", async (req, res) => {
             const result = await petServiceCollection.findOne({ _id: new ObjectId(req.params._id) })
+            res.send(result)
+        })
+
+        app.post("/bookings", async (req, res) => {
+            const result = await petServiceBookingCollection.insertOne(req.body)
+            res.send(result)
+        })
+
+        app.get("/bookings", async (req, res) => {
+            const { email } = req.query;
+            const query = {};
+            if (email) query.email = email;
+            const cursor = petServiceBookingCollection.find(query).sort({ createdAt: -1 });
+            const results = await cursor.toArray();
+            res.send(results);
+        });
+
+
+        app.delete("/bookings/:_id", async (req, res) => {            
+            const result = await petServiceBookingCollection.deleteOne({ _id: new ObjectId(req.params._id) })
             res.send(result)
         })
 

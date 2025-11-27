@@ -17,6 +17,7 @@ const Navbar = () => {
         <>
             <li><MyLink to="/">Home</MyLink></li>
             <li><MyLink to="/services">Services</MyLink></li>
+            <li><MyLink to="/myBookConsultation">My Booking slot</MyLink></li>
             <li><MyLink to="/profile">My Profile</MyLink></li>
         </>
     );
