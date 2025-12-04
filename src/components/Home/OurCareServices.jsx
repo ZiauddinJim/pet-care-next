@@ -39,9 +39,9 @@ const OurCareServices = () => {
                     explore our full range of
                     veterinary <MdOutlinePets className='inline text-secondary rotate-20' size={40} /> services.
                 </h1>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10 mx-3 md:mx-auto'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-10 mx-3 md:mx-auto'>
                     {
-                        pets.slice(0, 3).map(pet => <OCSCard pet={pet} key={pet._id} />)
+                        pets.slice(0, 4).map(pet => <OCSCard pet={pet} key={pet._id} />)
                     }
                 </div>
                 <div className='flex justify-center'>

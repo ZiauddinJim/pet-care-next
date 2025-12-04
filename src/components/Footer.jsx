@@ -4,6 +4,9 @@ import React, { useContext } from 'react';
 import { BsTwitter, BsYoutube } from 'react-icons/bs';
 import { FaFacebook } from 'react-icons/fa';
 import AuthContext from './AuthContext';
+import Image from 'next/image';
+import logo from "../../public/assets/logo.png";
+
 
 const Footer = () => {
     const { user } = useContext(AuthContext)
@@ -24,6 +27,10 @@ const Footer = () => {
     );
     return (
         <footer className="footer footer-horizontal footer-center bg-primary text-base-100 rounded p-10">
+            <Link href="/" className="flex items-center gap-1">
+                <Image src={logo} alt="logo" className="w-8 h-8" />
+                <h1 className="text-White font-bold text-lg lg:text-2xl">Pet Care</h1>
+            </Link>
             <ul className="grid grid-flow-col gap-4">
                 {links}
             </ul>
