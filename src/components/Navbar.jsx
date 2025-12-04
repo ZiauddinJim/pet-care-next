@@ -17,8 +17,15 @@ const Navbar = () => {
         <>
             <li><MyLink to="/">Home</MyLink></li>
             <li><MyLink to="/services">Services</MyLink></li>
-            <li><MyLink to="/myBookConsultation">My Booking slot</MyLink></li>
-            <li><MyLink to="/profile">My Profile</MyLink></li>
+            <li><MyLink to="/careTips">Care Tips</MyLink></li>
+            <li><MyLink to="/ourTeam">Our Team</MyLink></li>
+            {
+                user &&
+                <>
+                    <li><MyLink to="/myBookConsultation">My Booking slot</MyLink></li>
+                    <li><MyLink to="/profile">My Profile</MyLink></li>
+                </>
+            }
         </>
     );
     const handleLogout = () => {
@@ -33,7 +40,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="bg-base-100 shadow-lg">
+        <div className="bg-base-100/30 drop-shadow-xl fixed top-0 left-0 right-0 z-50 backdrop-blur-lg">
             <MyContainer className="navbar">
                 <div className="navbar-start items-center">
                     <div className="dropdown">

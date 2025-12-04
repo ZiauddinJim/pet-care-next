@@ -28,7 +28,7 @@ const Services = () => {
 
     if (loading) return <Spinner />
     return (
-        <div className='bg-red-50 py-10'>
+        <div className='bg-red-50 pb-10 pt-27'>
             <title>Services | Pet Care</title>
             <MyContainer>
                 <h1 className='font-bold text-4xl text-center'>Service List</h1>

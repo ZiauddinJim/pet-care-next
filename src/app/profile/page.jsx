@@ -94,7 +94,7 @@ const Profile = () => {
 
     return (
         <ProtectedRoute>
-            <div className="min-h-screen">
+            <div className="min-h-screen mt-27">
                 <title>Profile | Pet Care</title>
                 <MyContainer>
                     {/* Header */}
