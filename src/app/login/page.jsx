@@ -74,8 +74,7 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4">
-
+        <div className="min-h-screen flex items-center justify-center py-20">
 
             <MyContainer className="flex flex-col  items-center gap-4 max-md:gap-8 max-w-6xl w-full p-4 shadow-xl rounded-md">
                 <div className="md:max-w-md w-full px-4 py-4">

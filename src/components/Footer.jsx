@@ -1,23 +1,25 @@
+"use client";
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsTwitter, BsYoutube } from 'react-icons/bs';
 import { FaFacebook } from 'react-icons/fa';
+import AuthContext from './AuthContext';
 
 const Footer = () => {
+    const { user } = useContext(AuthContext)
     const links = (
         <>
-            <li>
-                <Link className='active:text-secondary' href={'/'}>Home</Link>
-            </li>
-            <li>
-                <Link href={'/services'}>Services</Link>
-            </li>
-            <li>
-                <Link href={'/myBookConsultation'}>My Booking Slot</Link>
-            </li>
-            <li>
-                <Link href={'/profile'}>My Profile</Link>
-            </li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/careTips">Care Tips</Link></li>
+            <li><Link href="/ourTeam">Our Team</Link></li>
+            {
+                user &&
+                <>
+                    <li><Link href="/myBookConsultation">My Booking slot</Link></li>
+                    <li><Link href="/profile">My Profile</Link></li>
+                </>
+            }
         </>
     );
     return (

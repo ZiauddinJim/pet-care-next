@@ -78,7 +78,7 @@ const MyBookConsultation = ({ email: emailProp }) => {
 
     return (
         <ProtectedRoute>
-            <div className="max-w-5xl mx-auto p-6 shadow rounded my-8">
+            <div className="max-w-5xl mx-auto p-6 shadow rounded my-27">
                 <h2 className="text-xl font-semibold mb-3">My Book Consultations</h2>
                 <div className="mb-4 text-sm text-muted">Showing bookings for <strong>{userEmail}</strong></div>
 
@@ -114,11 +114,10 @@ const MyBookConsultation = ({ email: emailProp }) => {
                                         <td className="text-right">
                                             <div className="flex justify-end gap-2">
                                                 <button
-                                                    className={`btn btn-ghost btn-sm ${deleting === b._id ? "loading" : ""}`}
+                                                    className={`btn btn-primary btn-sm ${deleting === b._id ? "loading" : ""}`}
                                                     onClick={() => handleDelete(b._id)}
                                                     disabled={!!deleting}
-                                                    title="Delete booking"
-                                                >
+                                                    title="Delete booking">
                                                     Delete
                                                 </button>
                                             </div>

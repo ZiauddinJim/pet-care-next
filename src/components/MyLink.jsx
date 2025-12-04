@@ -9,7 +9,7 @@ const MyLink = ({ to = "/", className = "", children }) => {
     const isActive = pathname === to;
 
     const base = `${className} text-primary hover:text-secondary`;
-    const activeClass = "text-secondary border border-secondary";
+    const activeClass = "text-white bg-primary";
 
     return (
         <Link href={to} className={isActive ? activeClass : base}>

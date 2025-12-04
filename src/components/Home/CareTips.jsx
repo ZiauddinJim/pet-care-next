@@ -53,40 +53,37 @@ const CareTips = () => {
                                 <div
                                     key={index}
                                     className="group flex flex-col md:flex-row items-center bg-white border border-gray-200
-                     rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 
-                     hover:scale-[1.02] mx-5 max-w-sm md:max-w-lg overflow-hidden"
+             rounded-2xl shadow-md hover:shadow-lg transition-all duration-300
+             hover:scale-[1.02] mx-5 max-w-sm md:max-w-lg overflow-hidden"
                                 >
                                     <Image
-                                        className="object-cover w-full md:w-48 h-48 md:h-[260px] rounded-t-2xl md:rounded-l-2xl"
                                         src={image}
                                         alt={title}
                                         width={800}
                                         height={600}
+                                        quality={75}
+                                        className="object-cover w-full md:w-48 h-48 md:h-[260px] rounded-t-2xl md:rounded-l-2xl"
                                     />
 
                                     <div className="flex flex-col justify-between p-4 text-left relative">
-                                        <h5 className="mb-2 text-lg md:text-xl font-bold text-gray-900 dark:text-white">
+                                        <h5 className="mb-2 text-lg md:text-xl font-bold text-gray-900">
                                             {title}
                                         </h5>
 
                                         {/* Short description (default) */}
-                                        <p
-                                            className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-snug transition-opacity duration-300 group-hover:opacity-0"
-                                        >
-                                            {description.length > 120
-                                                ? description.slice(0, 120) + "..."
-                                                : description}
+                                        <p className="text-sm md:text-base text-gray-700 leading-snug transition-opacity duration-300 group-hover:opacity-0">
+                                            {description.length > 120 ? description.slice(0, 120) + "..." : description}
                                         </p>
 
                                         {/* Full description (only visible on hover) */}
-                                        <p
-                                            className="absolute inset-0 p-4 text-sm md:text-base text-gray-800 dark:text-gray-200 bg-white/90 
-                         opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto rounded-2xl"
-                                        >
+                                        <p className="absolute inset-0 p-4 text-sm md:text-base text-gray-800 bg-white/90
+                  opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                  overflow-y-auto rounded-2xl">
                                             {description}
                                         </p>
                                     </div>
                                 </div>
+
                             );
                         })}
                     </Marquee>

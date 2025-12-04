@@ -1,7 +1,6 @@
 
 import BackButton from '@/components/BackButton';
 import BookButton from '@/components/BookButton';
-import ProtectedRoute from '@/components/ProtectedRoute';
 import Image from 'next/image';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
@@ -23,8 +22,7 @@ const page = async ({ params }) => {
         image, category, providerName } = pet
 
     return (
-        <ProtectedRoute>
-            <div className='max-w-4xl mx-auto p-6 shadow-md rounded-md my-10'>
+            <div className='max-w-4xl mx-auto p-6 shadow-md rounded-md mb-10 mt-27'>
                 <div className='flex flex-col md:flex-row gap-6'>
                     <Image src={image} alt={serviceName} width={600}
                         height={400} className="w-full md:w-1/2 rounded-md object-cover" />
@@ -54,8 +52,6 @@ const page = async ({ params }) => {
                     </div>
                 </div>
             </div>
-        </ProtectedRoute>
-
     );
 };
 
