@@ -36,10 +36,70 @@ async function run() {
         const petServiceBookingCollection = db.collection("petBooking")
 
         //  Section: GET METHOD
+        // app.get("/petService", async (req, res) => {
+        //     const result = await petServiceCollection.find().toArray();
+        //     res.send(result)
+        // })
         app.get("/petService", async (req, res) => {
-            const result = await petServiceCollection.find().toArray();
-            res.send(result)
-        })
+            try {
+                const { search = "", sort = "", page = 1, limit = 100 } = req.query;
+
+                const query = {};
+
+                //  SEARCH filter (search name, description, provider)
+                if (search) {
+                    const s = search.trim();
+                    query.$or = [
+                        { serviceName: { $regex: s, $options: "i" } },
+                        { description: { $regex: s, $options: "i" } },
+                        { providerName: { $regex: s, $options: "i" } }
+                    ];
+                }
+
+                //  SORT options (default: no sorting)
+                let sortOption = {};
+                switch (sort) {
+                    case "rating-desc":
+                        sortOption = { rating: -1 };
+                        break;
+                    case "rating-asc":
+                        sortOption = { rating: 1 };
+                        break;
+                    case "name-asc":
+                        sortOption = { serviceName: 1 };
+                        break;
+                    case "name-desc":
+                        sortOption = { serviceName: -1 };
+                        break;
+                }
+
+                //  Pagination
+                const skip = (Number(page) - 1) * Number(limit);
+
+                //  MAIN QUERY
+                const result = await petServiceCollection
+                    .find(query)
+                    .sort(sortOption)
+                    .skip(skip)
+                    .limit(Number(limit))
+                    .toArray();
+
+                // OPTIONAL: total count for pagination
+                const total = await petServiceCollection.countDocuments(query);
+
+                res.send({
+                    total,
+                    page: Number(page),
+                    limit: Number(limit),
+                    data: result
+                });
+
+            } catch (error) {
+                console.error(error);
+                res.status(500).send({ message: "Server error", error });
+            }
+        });
+
 
         app.get("/petService/:_id", async (req, res) => {
             const result = await petServiceCollection.findOne({ _id: new ObjectId(req.params._id) })
@@ -61,7 +121,7 @@ async function run() {
         });
 
 
-        app.delete("/bookings/:_id", async (req, res) => {            
+        app.delete("/bookings/:_id", async (req, res) => {
             const result = await petServiceBookingCollection.deleteOne({ _id: new ObjectId(req.params._id) })
             res.send(result)
         })
